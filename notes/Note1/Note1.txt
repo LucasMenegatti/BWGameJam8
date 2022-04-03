@@ -1,0 +1,5 @@
+Jogo criado para a BW Game Jam 8
+
+1.0 Level Design
+2.0 Personagem
+3.0 Inimigos
