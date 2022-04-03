@@ -1,4 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-abrePorta();
-renascer();
+
+girar = function() {
+   image_angle += 2;
+}

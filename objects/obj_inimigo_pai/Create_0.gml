@@ -40,5 +40,5 @@ colisaoTiros = function() {
 
 // Eventos de Draw
 desenhaVida = function() {
-	draw_healthbar(x-40,y-60,x+40,y-50,(vida_atual/vida_maxima)*100, c_black, c_black, c_white, 0, 0, 0);
+	draw_healthbar(x-40,y-60,x+40,y-50,(vida_atual/vida_maxima)*100, c_black, c_black, c_black, 0, 0, 0);
 }

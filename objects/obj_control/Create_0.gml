@@ -2,20 +2,27 @@
 // You can write your code in this editor
 // ================================== VARIÁVEIS GERAIS (PODE ALTERAR) ==================================
 tempo_porta = room_speed*irandom_range(3,10);
+tempo_renascer = room_speed*3;
 
 // ================================ VARIÁVEIS DAS FUNÇÕES (NÃO ALTERAR) ================================
 // criar_portas()
 portasIDs = [];
+portaPlayerID = noone;
 
 // abrePorta()
 contador_porta = tempo_porta;
+
+contador_renascer = tempo_renascer;
 
 // ============================================== MÉTODOS ==============================================
 
 criar_portas = function() {
 	for(var _i = 0; _i < 3; _i++) {
-		portasIDs[_i] = instance_create_layer(200+200*_i, 0, "portas", obj_porta);
+		portasIDs[_i] = instance_create_layer(128+256*_i, 0, "portas", obj_porta);
 	}
+	portaPlayerID = instance_create_layer(512,640,"portas",obj_porta);
+	portaPlayerID.image_angle += 180;
+	portaPlayerID.portaDoPlayer = true;
 }
 criar_portas();
 
@@ -41,12 +48,25 @@ gerarInimigos = function(_idPorta) {
 // GUI
 desenhaVidaChefao = function() {
 	if(instance_exists(obj_chefao)){
-		draw_healthbar(50,room_height-50,room_width-50,room_height-30,(obj_chefao.vida_atual/obj_chefao.vida_maxima)*100, c_black, c_black, c_white, 0, 0, 0);
+		draw_healthbar(70,room_height-50,room_width-70,room_height-70,(obj_chefao.vida_atual/obj_chefao.vida_maxima)*100, c_black, c_black, c_black, 0, 0, 0);
 	}
 }
 
 desenhaVidaPlayer = function() {
 	if(instance_exists(obj_player)){
-		draw_text(30,30,obj_player.vida);
+		for(var i = 0; i < obj_player.vida; i++){
+			draw_sprite(spr_coracao,0,50+70*i,50);
+		}
+	}
+}
+
+renascer = function() {
+	if(!instance_exists(obj_player)){
+		contador_renascer--;
+		if(contador_renascer <= 0){	
+			instance_create_layer(room_width/2,room_height-46-sprite_height/2,"Instances",obj_player);
+			portaPlayerID.image_index = 1;
+			contador_renascer = tempo_renascer;
+		}
 	}
 }

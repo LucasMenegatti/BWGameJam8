@@ -2,6 +2,7 @@
 // You can write your code in this editor
 tempo_porta_aberta = room_speed*irandom_range(1,5);
 contador_porta_aberta = tempo_porta_aberta;
+portaDoPlayer = false;
 
 fechaPorta = function() {
 	if(image_index==1){

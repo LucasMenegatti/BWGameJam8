@@ -6,3 +6,4 @@ ohar_mouse();
 atirar();
 passarPorta();
 perdeVida();
+equiparItem();
