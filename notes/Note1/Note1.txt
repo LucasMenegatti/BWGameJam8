@@ -1,3 +1,17 @@
+Tema: Loop
+
+Ideia: Jogo parecido com The Binding of Isaac, onde a sala tem 4 portas, por onde entram os inimigos
+Na sala está um chefão desde o começo
+Quando o player passa por uma das portas, reaparece na porta oposta e o boss dá uma gargalhada e recupera toda a vida
+O player perde vida se encostar no boss ou nos inimigos
+Os tiros do player quase não tiram vida dos inimigos
+O único jeito de ganhar o jogo é pegando uma chave, porém... usando a chave você volta do começo
+Na verdade existe outra chave, que é mais rara de dropar, e que também não serve para ganhar o jogo
+:D
+
+As portas tem um chance aleatória de abrir, e uma chance de conter inimigos.
+O tempo que ficam abertas também é aleatório.
+
 Jogo criado para a BW Game Jam 8
 
 1.0 Level Design

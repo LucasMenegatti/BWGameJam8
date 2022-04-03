@@ -1,6 +1,7 @@
 /// @description Programação do Player
 
 // ================================== VARIÁVEIS GERAIS (PODE ALTERAR) ==================================
+vida = 10;
 velocidade = 10; // Velocidade de movimento
 
 
@@ -8,6 +9,10 @@ velocidade = 10; // Velocidade de movimento
 // movimentos() - Variáveis de Controle
 movimentoHorizontal = 0;
 movimentoVertical	= 0;
+
+invulneravel = false;
+tempo_invulneravel = room_speed*1;
+contador_invulneravel = tempo_invulneravel;
 
 
 // ============================================== MÉTODOS ==============================================
@@ -42,5 +47,34 @@ atirar = function() {
 		var _id_tiro = instance_create_layer(x,y,"tiros",obj_tiro);
 		_id_tiro.direction = point_direction(x,y,mouse_x,mouse_y);
 		_id_tiro.image_angle = _id_tiro.direction;
+	}
+}
+
+passarPorta = function() {
+	if(instance_exists(obj_porta)){
+		var _id_porta = instance_place(x,y,obj_porta)
+		if(_id_porta) {
+			if(_id_porta.image_index==1){
+				y = room_height;
+				x = room_width/2;
+			}
+		}
+	}
+}
+
+perdeVida = function() {
+	if(vida <= 0) {
+		instance_destroy();
+	}
+	if(place_meeting(x,y,obj_inimigo_pai)&&!invulneravel) {
+		vida--;
+		invulneravel = true;
+	}
+	if(invulneravel){
+		contador_invulneravel--;
+		if(contador_invulneravel <= 0) {
+			invulneravel = false;
+			contador_invulneravel = tempo_invulneravel;
+		}
 	}
 }
