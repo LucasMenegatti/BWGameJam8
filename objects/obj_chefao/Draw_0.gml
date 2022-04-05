@@ -3,3 +3,4 @@
 
 draw_self();
 sempreOlharPlayer();
+desenhaVidaChefao();

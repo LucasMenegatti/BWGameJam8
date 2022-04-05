@@ -48,6 +48,7 @@ atirar = function() {
 		var _id_tiro = instance_create_layer(x,y,"tiros",obj_tiro);
 		_id_tiro.direction = point_direction(x,y,mouse_x,mouse_y);
 		_id_tiro.image_angle = _id_tiro.direction;
+		audio_play_sound(snd_tiro,2,false);
 	}
 }
 
@@ -70,10 +71,14 @@ perdeVida = function() {
 			instance_destroy(obj_arco_equipado);
 			instance_create_layer(x,y, "Instances", obj_arco_chao);
 		}
+		perder_cranios();
+		global.derrotas++;
 		instance_destroy();
 	}
 	if(place_meeting(x,y,obj_inimigo_pai)&&!invulneravel) {
 		vida--;
+		audio_play_sound(snd_pain,2,false);
+		instance_create_layer(0,0, "Instances", obj_screenshake);
 		invulneravel = true;
 	}
 	if(invulneravel){
@@ -92,5 +97,52 @@ equiparItem = function() {
 		instance_destroy(obj_arco_chao);
 		image_index = 1;
 		podeAtirar = true;
+		audio_play_sound(snd_pega_arco,5,false);
+	}
+}
+
+coletar_cranio = function() {
+	if(!global.chefao){
+		var _idCranio = instance_place(x,y,obj_cranio);
+		if(_idCranio&&global.cranios<=8){
+			instance_destroy(_idCranio);
+			global.cranios++;
+			audio_play_sound(snd_pega_caveira,5,false);
+		}
+	}
+}
+
+perder_cranios = function() {
+	repeat(global.cranios){
+		instance_create_layer(x,y,"inimigos",obj_cranio);
+	}
+	global.cranios = 0;
+}
+
+ganha_jogo = function() {
+	if(place_meeting(x,y,obj_alcapao)&&global.cranios>=8){
+		global.vitorias++;
+		global.cranios=0;
+		obj_control.criar_arco();
+		instance_create_layer(irandom_range(128,room_width/2), irandom_range(128,room_height/2),"inimigos",obj_chefao)
+		global.chefao=true;
+		if(instance_exists(obj_arco_equipado)) {
+			instance_destroy(obj_arco_equipado);
+		}
+		instance_destroy();
+	}
+}
+
+desenha_tela = function() {
+	switch(vida){
+		case(3):
+			draw_sprite_ext(spr_tela,0,view_get_xport(0)-10,view_get_yport(0)-10,1,1,0,c_black,1);
+			break;
+		case(2):
+			draw_sprite_ext(spr_tela,1,view_get_xport(0)-10,view_get_yport(0)-10,1,1,0,c_black,1);
+			break;
+		case(1):
+			draw_sprite_ext(spr_tela,2,view_get_xport(0)-10,view_get_yport(0)-10,1,1,0,c_black,1);
+			break;
 	}
 }

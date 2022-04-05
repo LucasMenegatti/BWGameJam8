@@ -7,3 +7,5 @@ atirar();
 passarPorta();
 perdeVida();
 equiparItem();
+coletar_cranio();
+ganha_jogo();
