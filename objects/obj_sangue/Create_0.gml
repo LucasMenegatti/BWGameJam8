@@ -1,18 +1,26 @@
 /// @description Insert description here
-// You can write your code in this editor
 
-#region ============ VARIÁVEIS DO OBJETO ============
-direcao			= irandom(359);
-velocidade		= random_range(5,20);
-image_xscale	= random_range(0.1,0.5);
-image_yscale	= image_xscale;
-diminui			= random_range(image_xscale/10, image_xscale/5);
-image_blend		= c_black;
-
+#region ================================== VARIÁVEIS GERAIS (PODE ALTERAR) ==================================
+	direcao_sangue = 359;
+	
+	velocidade_minima_sangue = 5;
+	velocidade_maxima_sangue = 20;
+	
+	tamanho_minimo_sangue = 0.1;
+	tamanho_maximo_sangue = 0.5;
+	
+	cor_do_sangue = c_black;
 
 #endregion
-
-#region ============ MÉTODOS ============
+#region ================================ VARIÁVEIS DE CONTROLE (NÃO ALTERAR) ================================
+	direcao			= irandom(direcao_sangue);
+	velocidade		= random_range(velocidade_minima_sangue,velocidade_maxima_sangue);
+	image_xscale	= random_range(tamanho_minimo_sangue,tamanho_maximo_sangue);
+	image_yscale	= image_xscale;
+	diminui			= random_range(image_xscale/10, image_xscale/5);
+	image_blend		= cor_do_sangue;
+#endregion
+#region  ============================================== MÉTODOS ==============================================
 mover_sumir = function()
 {
 	// Diminuindo
@@ -29,6 +37,4 @@ mover_sumir = function()
 	// Destruindo	
 	if (image_xscale <= 0) instance_destroy();
 }
-
-
 #endregion

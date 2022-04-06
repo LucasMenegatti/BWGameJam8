@@ -1,6 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Executa as funções do chefão
 
-saiuDaRoom();
-colisaoTirosChefao();
-sempreOlharPlayer();
+// Herdando o evento do pai
+event_inherited();

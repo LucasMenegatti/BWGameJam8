@@ -28,7 +28,7 @@ criar_portas = function() {
 	portaPlayerID = instance_create_layer(896,1280,"portas",obj_porta);
 	portaPlayerID.image_angle += 180;
 	portaPlayerID.portaDoPlayer = true;
-	instance_create_layer(1408,512,"portas",obj_alcapao);
+	alcapaoID = instance_create_layer(1408,512,"portas",obj_alcapao);
 }
 criar_portas();
 
@@ -75,6 +75,19 @@ gerarInimigos = function(_idPorta) {
 			if(instance_exists(obj_player)) obj_player.perder_cranios();
 			global.cranios = 0;
 		}			
+	}
+}
+
+tocou_som_alcapao = false;
+
+abreAlcapao = function(){
+	if(global.cranios>=8){
+		alcapaoID.image_index = 1;
+		if(!tocou_som_alcapao) audio_play_sound(snd_porta_abrindo,10,false)
+		tocou_som_alcapao = true;
+	} else {
+		alcapaoID.image_index = 0;
+		tocou_som_alcapao = false;
 	}
 }
 
