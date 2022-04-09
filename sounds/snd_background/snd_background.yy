@@ -14,8 +14,8 @@
   "soundFile": "snd_background.ogg",
   "duration": 123.000458,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "som_bg",
+    "path": "folders/Sounds/som_bg.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_background",

@@ -4,7 +4,7 @@
 movimentos();
 ohar_mouse();
 atirar();
-passarPorta();
+//passarPorta();
 perdeVida();
 equiparItem();
 coletar_cranio();

@@ -25,8 +25,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "_controle",
+    "path": "folders/Objects/_controle.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_control",

@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Itens",
-    "path": "folders/Objects/Itens.yy",
+    "name": "itens",
+    "path": "folders/Objects/itens.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_arco_equipado",

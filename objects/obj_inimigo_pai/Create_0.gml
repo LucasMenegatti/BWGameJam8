@@ -31,7 +31,7 @@
 	direction = irandom_range(direcao_inicial_minima,direcao_inicial_maxima);
 	image_angle = direction;
 	
-	espessura_parede = 128/2.8;
+	espessura_parede = 128/3.5;
 	
 	areaUtilDaRoom_x1 = sprite_width/2+espessura_parede;
 	areaUtilDaRoom_y1 = sprite_height/2+espessura_parede;

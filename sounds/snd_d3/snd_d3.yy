@@ -14,8 +14,8 @@
   "soundFile": "snd_d3.wav",
   "duration": 0.541655,
   "parent": {
-    "name": "death_sounds",
-    "path": "folders/Sounds/death_sounds.yy",
+    "name": "sons_morte_inimigos",
+    "path": "folders/Sounds/sons_morte_inimigos.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_d3",
